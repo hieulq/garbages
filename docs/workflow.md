@@ -1,8 +1,20 @@
 # Quy trình contribute với dự án nguồn mở OpenCPS
 
-TODO: Write a project description
+- [Quy trình contribute với dự án nguồn mở OpenCPS](#quy-tr%C3%ACnh-contribute-v%E1%BB%9Bi-d%E1%BB%B1-%C3%A1n-ngu%E1%BB%93n-m%E1%BB%9F-opencps)
+    - [Luồng contribute tổng quát](#lu%E1%BB%93ng-contribute-t%E1%BB%95ng-qu%C3%A1t)
+    - [Tổng quan](#t%E1%BB%95ng-quan)
+    - [Usage](#usage)
+    - [Contributing](#contributing)
+    - [History](#history)
+    - [Credits](#credits)
+    - [License](#license)
+    - [References](#references)
 
-## Installation
+## Luồng contribute tổng quát
+
+![alt text](asset/OpenCPS.png "OpenCPS Contribution Workflow")
+
+## Tổng quan
 
 TODO: Describe the installation process
 
@@ -30,6 +42,10 @@ TODO: Write credits
 
 TODO: Write license
 
+[abc](#references-3)
+
 ## References
 
-1. https://github.com/jd/git-pull-request
+1. [Git PR CLI](https://github.com/jd/git-pull-request)
+2. [Github Code Owner](https://github.com/blog/2392-introducing-code-owners)
+3. [Github Pull Request](https://help.github.com/articles/creating-a-pull-request/)
