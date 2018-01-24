@@ -3,7 +3,7 @@
 - [Quy trình contribute với dự án nguồn mở OpenCPS](#quy-tr%C3%ACnh-contribute-v%E1%BB%9Bi-d%E1%BB%B1-%C3%A1n-ngu%E1%BB%93n-m%E1%BB%9F-opencps)
     - [Luồng contribute tổng quát](#lu%E1%BB%93ng-contribute-t%E1%BB%95ng-qu%C3%A1t)
     - [Tổng quan](#t%E1%BB%95ng-quan)
-    - [Usage](#usage)
+    - [Đăng ký tài khoản github và git](#%C4%91%C4%83ng-k%C3%BD-t%C3%A0i-kho%E1%BA%A3n-github-v%C3%A0-git)
     - [Contributing](#contributing)
     - [History](#history)
     - [Credits](#credits)
@@ -16,11 +16,15 @@
 
 ## Tổng quan
 
-TODO: Describe the installation process
+Mục đích của tài liệu này nhằm giới thiệu và hướng dẫn các lập trình viên về quy trình đóng góp mã nguồn vào dự án nguồn mở OpenCPS.
 
-## Usage
+Việc phát triển OpenCPS yêu cầu tối thiểu phải có tài khoản [Github](https://www.github.com) và nắm được cơ bản về luồng làm việc với [Git](https://git-scm.com/).
 
-TODO: Write usage instructions
+## Đăng ký tài khoản github và git
+
+Đăng ký tài khoản Github ở [đường link này](https://github.com/join).
+
+Cài đặt git tham khảo [đường link này](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 ## Contributing
 
@@ -41,8 +45,6 @@ TODO: Write credits
 ## License
 
 TODO: Write license
-
-[abc](#references-3)
 
 ## References
 
