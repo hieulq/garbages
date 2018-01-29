@@ -8,10 +8,7 @@
     - [Cấu hình git với github](#c%E1%BA%A5u-h%C3%ACnh-git-v%E1%BB%9Bi-github)
     - [Tạo Pull Request (PR) với Github](#t%E1%BA%A1o-pull-request-pr-v%E1%BB%9Bi-github)
     - [Đóng góp mã nguồn vào kho mã nguồn OpenCPS](#%C4%91%C3%B3ng-g%C3%B3p-m%C3%A3-ngu%E1%BB%93n-v%C3%A0o-kho-m%C3%A3-ngu%E1%BB%93n-opencps)
-    - [History](#history)
-    - [Credits](#credits)
-    - [License](#license)
-    - [References](#references)
+    - [Kiểm thử tự động và CI/CD](#ki%E1%BB%83m-th%E1%BB%AD-t%E1%BB%B1-%C4%91%E1%BB%99ng-v%C3%A0-cicd)
 
 ## Luồng contribute tổng quát
 
@@ -69,26 +66,52 @@ $ git config --list
    $ sudo pip install git-pull-request
    ```
 
+   Cấu hình thông tin Github tại file `~/.netrc`. Lưu ý, nếu sử dụng 2FA của Github cần thay thông tin `password` bên dưới bằng [Github Personal Access Token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)
+
+   ```bash
+   machine github.com login <username> password <password>
+   ```
+
+   Sau khi commit trên local branch, để tạo PR từ CLI thực hiện lệnh sau:
+
+   ```bash
+   $ git pull-request
+   ```
+
 ## Đóng góp mã nguồn vào kho mã nguồn OpenCPS
 
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request 
+1. Fork mã nguồn OpenCPS từ Github upstream và clone về máy tính
 
-## History
+```bash
+$ git clone https://github.com/<tên user>/opencps-v2
+```
 
-TODO: Write history
+2. Tạo nhánh local lưu các thay đổi về code (bao gồm tính năng mới hoặc fix bugs) 
 
-## Credits
+```bash 
+$ git checkout -b bugXXX --track origin.master
+```
 
-TODO: Write credits
+3. Thực hiện implement code mới, fix bug
 
-## License
+4. Trước khi commit, tiến hành chạy thử các bài test cơ bản: unit test, coverage test và convention test.
 
-TODO: Write license
+5. Sau khi pass qua các bài test, tiến hành commit thay đổi
 
-## References
+```bash
+$ git commit -am 'Thông điệp của commit'
+```
 
-1. [Github Code Owner](https://github.com/blog/2392-introducing-code-owners)
+6. Đẩy lên branch đã fork
+
+```bash
+$ git push
+```
+
+7. Tạo pull request như hướng dẫn ở [phần trên]((#t%E1%BA%A1o-pull-request-pr-v%E1%BB%9Bi-github))
+
+8. Chờ sự đánh giá (review) và phê duyệt (approval) của OpenCPS Code-Owner. Để hiểu hơn về Github Code Owner, tham khảo [link sau](https://github.com/blog/2392-introducing-code-owners).
+
+## Kiểm thử tự động và CI/CD
+
+TODO: start
