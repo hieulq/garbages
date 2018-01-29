@@ -9,10 +9,11 @@
     - [Tạo Pull Request (PR) với Github](#t%E1%BA%A1o-pull-request-pr-v%E1%BB%9Bi-github)
     - [Đóng góp mã nguồn vào kho mã nguồn OpenCPS](#%C4%91%C3%B3ng-g%C3%B3p-m%C3%A3-ngu%E1%BB%93n-v%C3%A0o-kho-m%C3%A3-ngu%E1%BB%93n-opencps)
     - [Kiểm thử tự động và CI/CD](#ki%E1%BB%83m-th%E1%BB%AD-t%E1%BB%B1-%C4%91%E1%BB%99ng-v%C3%A0-cicd)
+    - [Các nhãn (label) xuất hiện với một PR](#c%C3%A1c-nh%C3%A3n-label-xu%E1%BA%A5t-hi%E1%BB%87n-v%E1%BB%9Bi-m%E1%BB%99t-pr)
 
 ## Luồng contribute tổng quát
 
-![alt text](asset/OpenCPS.png "OpenCPS Contribution Workflow")
+![luồng contribute tổng quát](asset/OpenCPS.png "OpenCPS Contribution Workflow")
 
 ## Tổng quan
 
@@ -108,10 +109,41 @@ $ git commit -am 'Thông điệp của commit'
 $ git push
 ```
 
-7. Tạo pull request như hướng dẫn ở [phần trên]((#t%E1%BA%A1o-pull-request-pr-v%E1%BB%9Bi-github))
+7. Tạo pull request như hướng dẫn ở [phần trên](#t%E1%BA%A1o-pull-request-pr-v%E1%BB%9Bi-github)
 
 8. Chờ sự đánh giá (review) và phê duyệt (approval) của OpenCPS Code-Owner. Để hiểu hơn về Github Code Owner, tham khảo [link sau](https://github.com/blog/2392-introducing-code-owners).
 
 ## Kiểm thử tự động và CI/CD
 
-TODO: start
+1. Khi một lập trình viên tiến hành đẩy một PR lên Github, quá trình `check` của project OpenCPS sẽ được tự động thực thi thông qua Github webhook tới một server Jenkin của cộng đồng. Quá trình check này bao gồm:
+
+- Kiểm thử Unit Test trên commit/PR mới.
+- Báo cáo coverage.
+- Kiểm thử convention check (quy tắc mã nguồn trong sáng)
+- Kiểm thử Functional Test (test tích hợp).
+- Kiểm thử an ninh mã nguồn (qua mã nguồn mở SonarQube)
+
+Toàn bộ quá trình kiểm thử 5 bước trên sẽ được tự động thực thi qua hai server Jenkin và Sonarqube. Kết quả sẽ được trả về ở dạng `pass/fail` ngay trên giao diện PR của người dùng như hình dưới. (ví dụ từ wiki của sonarqube)
+
+![sonarqube github example](asset/sonarqube.jpeg "Giao diện CI/CD trên Github")
+
+2. Sau khi `Jenkin` và `SonarQube` chạy hết các bài test, `Jenkin` sẽ tự động gán nhãn `ready-to-review` để giúp các Code-Owner có thể filter dễ dàng hơn. PR này sẽ cần được sự đánh giá (review) và chấp thuận (approve) của các Code-Owner trước khi được merge.
+
+3. Sau khi Code-Owner của OpenCPS approve PR, quá trình `gate` sẽ được Jenkin tự động gọi. Quá trình `gate` là quá trình:
+
+- Tự động rebase, update PR hiện tại với nhánh master của upstream repo.
+- Chạy lại toàn bộ các test ở quá trình `check` với code mới nhất sau khi rebase.
+- Nếu `Pass`, Jenkin sẽ tự động merge PR với nhánh master.
+
+## Các nhãn (label) xuất hiện với một PR
+
+Qua phần [Kiểm thử tự động và CI/CD](#ki%E1%BB%83m-th%E1%BB%AD-t%E1%BB%B1-%C4%91%E1%BB%99ng-v%C3%A0-cicd), có thể thấy một PR khi được khởi tạo sẽ được tự động gán các nhãn (label) khác nhau, mục đích để các Code-Owner có thể dễ dàng lọc và theo dõi tình trạng các PR tiện hơn.
+
+Phần này tổng hợp các label có thể gán cho một PR:
+
+| Nhãn              | Ý nghĩa                                                                 |
+| ----------------- |:-----------------------------------------------------------------------:|
+| `check`           | PR mới, đang ở trong quá trình `check`                                  |
+| `ready-to-review` | PR đã pass quá trình `check`, sẵn sàng để Code-Owner có thể review code |
+| `gate`            | PR đã được review và approve, đang trong quá trình `gate`               |
+| `merged`          | PR đã pass quá trình `gate` và được merge vào nhánh chính               |
