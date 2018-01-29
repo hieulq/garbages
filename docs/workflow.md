@@ -123,7 +123,7 @@ $ git push
 - Kiểm thử Functional Test (test tích hợp).
 - Kiểm thử an ninh mã nguồn (qua mã nguồn mở SonarQube)
 
-Toàn bộ quá trình kiểm thử 5 bước trên sẽ được tự động thực thi qua hai server Jenkin và Sonarqube. Kết quả sẽ được trả về ở dạng `pass/fail` ngay trên giao diện PR của người dùng như hình dưới. (ví dụ từ wiki của sonarqube)
+  Toàn bộ quá trình kiểm thử 5 bước trên sẽ được tự động thực thi qua hai server Jenkin và Sonarqube. Kết quả sẽ được trả về ở dạng `pass/fail` ngay trên giao diện PR của người dùng như hình dưới. (ví dụ từ wiki của sonarqube)
 
 ![sonarqube github example](asset/sonarqube.jpeg "Giao diện CI/CD trên Github")
 
